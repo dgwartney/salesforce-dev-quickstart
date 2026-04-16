@@ -21,51 +21,53 @@ Salesforce verifies all of the above and returns an `access_token` you use for s
 ## Create the Connected App
 
 1. In Setup, search Quick Find for: `App Manager`
-2. Click **App Manager**
-3. Click **New Connected App** (top right)
+2. Click **App Manager** (under Apps — not "Lightning Out 2.0 App Manager")
+3. Click **New External Client App** (top right)
+
+> **Note:** Older Salesforce documentation refers to a "New Connected App" button. On Hyperforce-provisioned orgs the button is now labeled **New External Client App** — this creates the same OAuth Connected App.
+
+The form is a single page with a **Create** button at the bottom.
 
 ### Basic Information
 
 | Field | Value |
 |---|---|
-| Connected App Name | `My API Integration` (or any name) |
-| API Name | Auto-filled (e.g., `My_API_Integration`) |
+| External Client App Name | `My API Integration` (or any name) |
+| API Name | Auto-filled when you tab out of the name field |
 | Contact Email | Your email address |
+| Distribution State | `Local` (default — leave as-is) |
 
 ### API (Enable OAuth Settings)
 
+Scroll down to the **API (Enable OAuth Settings)** section on the same page and expand it.
+
 4. Check **Enable OAuth Settings**
 5. **Callback URL:** `https://localhost` *(required by Salesforce even if unused)*
-6. **Selected OAuth Scopes** — add both:
-   - `Access and manage your data (api)`
-   - `Perform requests at any time (refresh_token, offline_access)`
+6. **Selected OAuth Scopes** — double-click each to move it from Available to Selected:
+   - `Manage user data via APIs (api)`
+   - `Perform requests at any time (refresh_token, offline_access)` — scroll down in the Available list to find it
 7. Leave all other settings at their defaults
-8. Click **Save**
-9. Click **Continue** on the confirmation dialog
+8. Click **Create**
 
 ---
 
 ## Retrieve Consumer Key and Secret
 
-After saving, Salesforce generates your credentials. **The Consumer Secret is only shown once — copy it immediately.**
+After creating, you land on the app detail page. Click the **Settings** tab, then expand **OAuth Settings**.
 
-1. You are now on the Connected App detail page
-2. Click **Manage Consumer Details** (may require email verification)
-3. Copy **Consumer Key** → paste into `.env` as `SF_CONSUMER_KEY`
-4. Copy **Consumer Secret** → paste into `.env` as `SF_CONSUMER_SECRET`
+1. Click **Consumer Key and Secret** — Salesforce will send a verification code to your email; check your inbox, enter the code, and click **Verify**
+2. Copy **Consumer Key** → paste into `.env` as `SF_CONSUMER_KEY`
+3. Copy **Consumer Secret** → paste into `.env` as `SF_CONSUMER_SECRET`
 
-> **WARNING:** **Consumer Secret is not recoverable.** If you navigate away without copying it, you must click **Reset Consumer Secret** to generate a new one (the old one stops working immediately).
+> **WARNING:** Copy both values before navigating away. If you lose the Consumer Secret, click **Reset Consumer Secret** to generate a new one (the old one stops working immediately).
 
 ---
 
 ## Configure App Policies
 
-5. Go back to Setup → App Manager → find your app → click the dropdown arrow → **Manage**
-6. Click **Edit Policies**
-7. Set:
-   - **Permitted Users:** `All users may self-authorize`
-   - **IP Relaxation:** `Relax IP restrictions`
-8. Click **Save**
+On the app detail page, click the **Policies** tab. **Permitted Users** is already set to `All users can self-authorize` by default — no change needed.
+
+If you encounter IP restriction errors when testing, click **Edit** on the Policies tab and set **IP Relaxation** to `Relax IP restrictions`.
 
 ---
 
