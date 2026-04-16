@@ -7,12 +7,13 @@
 
 ## What is Salesforce Developer Edition?
 
-Salesforce Developer Edition (DE) is a **free, permanent** instance of Salesforce that includes:
+Salesforce Developer Edition (DE) is a **free** Salesforce Platform environment that includes:
 
 - Full API access (REST, SOAP, Streaming APIs)
 - Lightning Platform, Apex, Flow Builder
-- Agentforce and Data Cloud (as of March 2025)
+- Agentforce (AI agent builder) and Data 360 (unified data platform)
 - Custom objects, custom fields, automation
+- Autonomous and generative AI features (usage may be limited by Salesforce)
 
 **Key limits to know:**
 
@@ -23,7 +24,7 @@ Salesforce Developer Edition (DE) is a **free, permanent** instance of Salesforc
 | File storage | 20 MB |
 | API calls | ~15,000 per 24-hour rolling period |
 | Sandboxes | Not available (requires paid org) |
-| Inactivity | Deactivated after **180 days** — log in periodically |
+| Inactivity | Deactivated after **45 days** of inactivity — log in periodically |
 
 > **Not for production use.** Developer Edition is for learning, development, and proof-of-concept only.
 
@@ -31,33 +32,49 @@ Salesforce Developer Edition (DE) is a **free, permanent** instance of Salesforc
 
 ## Sign Up
 
-1. Go to **<https://developer.salesforce.com/signup>**
+1. Go to **<https://www.salesforce.com/products/free-trial/developer/>**
 2. Fill in the form:
    - First Name, Last Name
-   - **Email address** — must be globally unique across *all* Salesforce orgs (including sandboxes and other orgs). If you get an error, try adding a `+tag` (e.g., `you+sfdev@gmail.com`)
-   - Company name (can be anything)
-   - **Username** — auto-filled from your email but must also be globally unique. You can leave the auto-generated value.
-3. Click **Sign me up**
-4. Check your email for a message from Salesforce. Check your spam folder if it does not arrive within 5 minutes.
-5. Click the verification link in the email.
-6. Set your **password** (use alphanumeric characters — special characters in passwords can cause authentication issues later).
-7. You are now logged in.
+   - Job Title, Company (can be anything)
+   - Country/Region
+   - **Work email** — must be globally unique across *all* Salesforce orgs. If you get an error, try adding a `+tag` (e.g., `you+sfdev@gmail.com`)
+3. Accept the Main Services Agreement and Salesforce Program Agreement
+4. Click **Sign me up**
+5. Check your email for a message from Salesforce. Check your spam folder if it does not arrive within 5 minutes.
+6. Click the verification link in the email.
+7. Set your **password** (use alphanumeric characters — special characters in passwords can cause authentication issues later).
+8. You are now logged in.
 
 > **Important:** Passwords are case-sensitive. Write yours down or save it in a password manager.
+
+> **Note:** Your org may be provisioned on Hyperforce, Salesforce's public cloud infrastructure. This is normal and does not affect the API or UI experience.
 
 ---
 
 ## First Login
 
-After signing up you will land in the Salesforce **Lightning Experience** — the modern web interface.
+After signing up you will receive an email with a link to set your password. Click that link — it takes you directly into your org.
 
-If you see an older, tab-heavy interface (Salesforce Classic), switch to Lightning:
+> **Hyperforce orgs: do not use `login.salesforce.com` directly.** If you try to log in there with your credentials, it will fail with "Please check your username and password." Instead, use one of these methods:
+>
+> **Option A — Use Custom Domain (recommended):**
+> 1. Go to <https://login.salesforce.com>
+> 2. Click **Use Custom Domain**
+> 3. Enter your org's domain — e.g. `orgfarm-e7022cb898-dev-ed.develop.my` (everything before `.salesforce.com`)
+> 4. Click **Continue**, then log in normally
+>
+> **Option B — Bookmark your org URL directly:**
+> Your org URL from the verification email looks like `https://orgfarm-XXXXXXXX-dev-ed.develop.my.salesforce.com` — bookmark it and go there directly.
+
+After signing up you will land in the Salesforce **Lightning Experience** — the modern web interface. All new Developer Edition orgs default to Lightning Experience; you should not need to switch.
+
+If you ever see an older, tab-heavy interface (Salesforce Classic), switch back:
 1. Click your **user avatar** (top right)
 2. Click **Switch to Lightning Experience**
 
-**Navigating Setup:** Almost everything you configure lives in the **Setup** menu:
-1. Click the **gear icon** in the top right
-2. Click **Setup**
+**Navigating Setup:** Almost everything you configure lives in the **Setup** menu. There are two ways to reach it:
+- Click the **gear icon** (top right) → **Setup**
+- Click your **user avatar** (top right) → **Settings**
 
 The Setup page has a **Quick Find** search box at the top left of the left sidebar. Type any menu item name to jump directly to it — you will use this constantly.
 
@@ -87,16 +104,19 @@ The security token is a personal credential you append to your password when mak
 1. In Setup, search Quick Find for: `OAuth`
 2. Click **OAuth and OpenID Connect Settings**
 3. Find the toggle **"Allow OAuth Username-Password Flows"**
-4. Turn it **ON**
-5. Click **Save**
+4. Turn it **ON** — the toggle saves automatically; there is no Save button
 
 ---
 
 ## Confirm Lightning Experience
 
 Verify you are in Lightning Experience (not Classic):
-- Your URL should look like: `https://yourorg.lightning.force.com/...`
 - The top navigation bar should have the App Launcher (9-dot grid icon) on the left
+- Your URL will be one of these formats:
+  - **New Hyperforce orgs:** `https://orgfarm-XXXXXXXX-dev-ed.develop.my.salesforce.com/...`
+  - **Older orgs:** `https://yourorg.lightning.force.com/...`
+
+Both are normal — the format depends on how Salesforce provisioned your org.
 
 ---
 
@@ -104,7 +124,7 @@ Verify you are in Lightning Experience (not Classic):
 
 Before proceeding to Step 2, confirm:
 
-- [ ] You can log in at <https://login.salesforce.com>
+- [ ] You can log in to your org (via the link in your verification email, or via Use Custom Domain at login.salesforce.com)
 - [ ] You received your security token by email
 - [ ] "Allow OAuth Username-Password Flows" is toggled ON in Setup
 - [ ] You are viewing Lightning Experience (not Classic)
@@ -114,5 +134,5 @@ Before proceeding to Step 2, confirm:
 **Navigation:** [← Required Tools](00-required-tools.md) | [README](../README.md) | [Next → User Setup →](02-user-setup.md)
 
 **Official Reference:**
-- Salesforce Developer signup: <https://developer.salesforce.com/signup>
+- Salesforce Developer signup: <https://salesforce.com/products/free-trial/developer/>
 - Reset security token: <https://help.salesforce.com/s/articleView?id=sf.user_security_token.htm>

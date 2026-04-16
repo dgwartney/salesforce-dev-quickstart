@@ -19,7 +19,7 @@
 - [ ] Installed uv (verify: `uv --version`)
 - [ ] Installed Node.js 18+ (verify: `node --version`)
 - [ ] Installed jq (optional, verify: `jq --version`)
-- [ ] Signed up for Salesforce Developer Edition at <https://developer.salesforce.com/signup>
+- [ ] Signed up for Salesforce Developer Edition at <https://salesforce.com/products/free-trial/developer/>
 - [ ] Received verification email and set password
 - [ ] Logged in at <https://login.salesforce.com> — confirmed Lightning Experience is active
 - [ ] Received security token by email (Setup → Personal Settings → Reset My Security Token)
@@ -97,7 +97,7 @@ When you resume, choose your path in [Session 3](#session-3).
 
 ### Phase 3B: Python SDK · ~45 min
 
-- [ ] Created Python venv: `cd python && uv venv && uv pip install -r requirements.txt`
+- [ ] Installed Python dependencies: `cd python && uv sync`
 - [ ] Ran `uv run python 01_authenticate.py` — saw org ID and instance URL
 - [ ] Ran `uv run python 02_accounts.py` — saw create/read/update/delete output
 - [ ] Ran `uv run python 03_contacts.py` — saw CRUD output

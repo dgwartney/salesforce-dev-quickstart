@@ -81,7 +81,7 @@ SF_API_VERSION=v62.0
 **Python:**
 ```bash
 cd python
-uv venv && uv pip install -r requirements.txt
+uv sync
 uv run python 01_authenticate.py
 ```
 

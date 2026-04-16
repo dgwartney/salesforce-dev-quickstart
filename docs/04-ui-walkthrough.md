@@ -56,8 +56,13 @@ Or add it permanently:
    - **Billing State:** `CA`
 4. Click **Save**
 
-You are now on the Account detail page. **Copy the Record ID from the URL bar.** It looks like: `https://yourorg.lightning.force.com/lightning/r/Account/0010g00001mbqU4AAI/view`
-The ID is the part after `/Account/` and before `/view`.
+You are now on the Account detail page. **Copy the Record ID from the URL bar.** It looks like:
+
+```
+https://orgfarm-XXXXXXXX-dev-ed.develop.my.salesforce.com/lightning/r/Account/0010g00001mbqU4AAI/view
+```
+
+The ID is the part after `/Account/` and before `/view` — `0010g00001mbqU4AAI` in this example. Your URL domain will differ depending on how your org was provisioned.
 
 ### Explore the Account Detail Page
 

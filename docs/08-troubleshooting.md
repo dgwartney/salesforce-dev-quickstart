@@ -231,13 +231,13 @@ A single `query()` call returns at most 2,000 records. If there are more, the re
 
 Upgrade `simple-salesforce` to the latest version:
 ```bash
-uv pip install --upgrade simple-salesforce
+uv add simple-salesforce@latest
+uv sync
 ```
 
 If the issue persists, use Python 3.11:
 ```bash
-uv venv --python 3.11
-uv pip install -r requirements.txt
+uv sync --python 3.11
 ```
 
 ---
@@ -332,9 +332,28 @@ const jsforce = await import('jsforce');
 
 ## Section 6: Org and Setup Issues
 
-### Org deactivated after 180-day inactivity
+### "Please check your username and password" on login.salesforce.com
 
-Developer Edition orgs are permanently deactivated after 180 days of inactivity. There is no recovery. Start fresh: sign up for a new Developer Edition at <https://developer.salesforce.com/signup>.
+Hyperforce-provisioned Developer Edition orgs (URL format: `orgfarm-XXXXXXXX-dev-ed.develop.my.salesforce.com`) cannot be accessed directly via `login.salesforce.com`. The credentials are correct — the routing is wrong.
+
+Fix — use either method:
+
+**Option A: Use Custom Domain**
+1. Go to <https://login.salesforce.com>
+2. Click **Use Custom Domain**
+3. Enter your org domain (e.g. `orgfarm-e7022cb898-dev-ed.develop.my`)
+4. Click **Continue** and log in
+
+**Option B: Go to your org URL directly**
+Navigate to `https://orgfarm-XXXXXXXX-dev-ed.develop.my.salesforce.com` (your full org URL from the signup verification email) and log in there.
+
+> **Note:** For API authentication (OAuth token requests), `https://login.salesforce.com/services/oauth2/token` still works correctly for Hyperforce orgs — this issue only affects the UI login.
+
+---
+
+### Org deactivated after 45-day inactivity
+
+Developer Edition orgs are permanently deactivated after 45 days of inactivity. There is no recovery. Start fresh: sign up for a new Developer Edition at <https://salesforce.com/products/free-trial/developer/>.
 
 ---
 

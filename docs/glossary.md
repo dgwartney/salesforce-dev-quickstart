@@ -26,7 +26,7 @@ A copy of a production Org used for testing before deploying changes to producti
 The physical server cluster hosting your Org (e.g., NA91, EU15). The instance name appears in your login URL. You rarely need to care about this directly.
 
 **My Domain**
-A custom subdomain for your Org: `yourcompany.my.salesforce.com`. Required for several features including SSO, connected apps, and Lightning components. Developer Edition orgs get a My Domain automatically.
+A custom subdomain for your Org. Required for several features including SSO, connected apps, and Lightning components. Developer Edition orgs get a My Domain automatically. Hyperforce-provisioned orgs use a generated domain like `orgfarm-XXXXXXXX-dev-ed.develop.my.salesforce.com`.
 
 **Trailhead**
 Salesforce's free gamified online learning platform. Separate from a production Org. Trailhead has its own "playground" orgs for hands-on exercises. Link: <https://trailhead.salesforce.com>
@@ -178,7 +178,7 @@ Controls which fields appear on a record detail page and in what order. Users wi
 A collection of tabs and navigation items grouped for a specific use case (e.g., Sales app, Service Console). Configured in Setup → App Manager. Users can switch between Apps using the App Launcher (9-dot grid icon).
 
 **Lightning Experience**
-The modern Salesforce web UI, introduced in 2016. Default for all new orgs. Your URL looks like: `yourorg.lightning.force.com`. Contrast with Salesforce Classic, the older UI that still exists for legacy reasons.
+The modern Salesforce web UI, introduced in 2016. Default for all new orgs. Your URL will look like `yourorg.lightning.force.com` or, for newer Hyperforce-provisioned orgs, `orgfarm-XXXXXXXX-dev-ed.develop.my.salesforce.com`. Contrast with Salesforce Classic, the older UI that still exists for legacy reasons.
 
 **API Name**
 The programmatic identifier for an object or field. Immutable after creation. Custom items end in `__c`. Used in REST API calls, SOQL queries, and code. The display Label can be changed; the API Name cannot.

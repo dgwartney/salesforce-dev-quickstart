@@ -15,7 +15,7 @@ This document describes what is and is not available in the free Salesforce Deve
 | Flows and Process Builder | Yes | Declarative automation |
 | Lightning Web Components | Yes | Front-end framework |
 | Agentforce (Agent Builder) | Yes — limited | 110 req/mo, 1.5M tokens/mo until May 2026 |
-| Data Cloud | Yes | Full access since March 2025 |
+| Data 360 (Data Cloud) | Yes | Unified data platform; included by default |
 | Prompt Builder | Yes | Create reusable AI prompts |
 | Einstein Copilot / Agentforce Assistant | Yes | Built-in AI assistant |
 | Einstein for Developers (code autocomplete) | Yes | Apex + LWC + HTML |

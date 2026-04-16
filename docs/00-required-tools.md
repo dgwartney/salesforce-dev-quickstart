@@ -71,8 +71,7 @@ Official docs: <https://docs.astral.sh/uv/>
 **Using uv in this project:**
 ```bash
 cd python/
-uv venv                            # creates .venv/
-uv pip install -r requirements.txt # installs packages
+uv sync                            # creates .venv/ and installs from pyproject.toml
 uv run python 01_authenticate.py   # runs script (no manual activate needed)
 ```
 

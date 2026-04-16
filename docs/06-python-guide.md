@@ -13,13 +13,14 @@
 
 ---
 
-## Setup: Create Virtual Environment
+## Setup: Install Dependencies
 
 ```bash
 cd python/
-uv venv
-uv pip install -r requirements.txt
+uv sync
 ```
+
+`uv sync` reads `pyproject.toml`, creates `.venv/` if needed, and installs all dependencies in one step.
 
 **Verify installation:**
 ```bash
