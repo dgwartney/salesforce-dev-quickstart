@@ -7,12 +7,20 @@
 
 ## Why Two Users?
 
-In production Salesforce environments, human users never share credentials with automated systems. The pattern is:
+> **Short answer:** You can skip User B and use your admin account for API access. The System Administrator profile already has API access enabled. Put your admin credentials in `.env` and every curl, Python, and JavaScript example will work.
+
+The two-user pattern is a **production best practice**, not a technical requirement. The reasons to follow it even in a dev org are:
+
+- **Security:** automated systems should not hold admin credentials
+- **Realism:** your code will reflect the pattern you would use in production
+- **Auditability:** API calls appear under the integration user in logs, separate from admin activity
+
+If you just want to get to the API examples quickly, skip to [Step 3](03-connected-app.md) using your admin credentials. Come back to this step when you are ready to set up the proper pattern.
+
+If you do proceed, the two roles are:
 
 - **User A (Admin)** — your signup account. Full UI access, manages configuration.
 - **User B (Integration User)** — a dedicated service account. API access only, used by your code.
-
-Setting this up now means your code examples will reflect real-world patterns from the start.
 
 ![User Architecture](diagrams/user-architecture.svg)
 
@@ -50,6 +58,8 @@ User B is a dedicated API account. Your code authenticates as User B.
 
 > **Note:** Developer Edition includes 2 standard user licenses + 1 admin. User B uses one of those 2 licenses.
 
+> **Hyperforce orgs — extra system users are normal:** When you open the Users list you will see several pre-provisioned system accounts alongside your own: Chatter Expert, OrgFarm EPIC, Analytics Cloud Integration User, and Security User. These use special free licenses and do not consume your 2 standard user slots. Ignore them — they are managed by Salesforce and required for platform features.
+
 ---
 
 ## Create an API Permission Set for User B
@@ -75,8 +85,10 @@ Permission Sets grant additional access on top of a user's base Profile.
 1. Return to the Permission Set detail page
 2. Click **Manage Assignments**
 3. Click **Add Assignments**
-4. Select User B from the list
-5. Click **Assign**
+4. You will see a list of all users — Hyperforce orgs show several pre-existing system accounts (Chatter Expert, OrgFarm EPIC, etc.). Locate and select **your Integration User** (User B) by name or username
+5. Click **Next**
+6. On the **"Select an Expiration Option"** page: leave **"No expiration date"** selected (the default) — the Selected Users panel should show your Integration User with "Never Expires"
+7. Click **Assign**
 
 ---
 
