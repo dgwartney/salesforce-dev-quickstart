@@ -84,11 +84,13 @@ The Setup page has a **Quick Find** search box at the top left of the left sideb
 
 The security token is a personal credential you append to your password when making API calls from non-whitelisted IP addresses. You need it for programmatic access.
 
-1. Click the **gear icon** → **Setup**
-2. In Quick Find, type: `Reset My Security Token`
+1. Click the **user avatar** (top right) → **Settings** — this opens Personal Settings, NOT Setup
+2. In the Quick Find on the left, type: `Reset My Security Token`
 3. Click **Reset My Security Token**
 4. Click the **Reset Security Token** button
 5. Check your email — the token arrives within ~1 minute
+
+> **Personal Settings vs. Setup:** "Reset My Security Token" lives under Personal Settings (user avatar → Settings). It does NOT appear in the gear icon → Setup search — that is the admin area.
 
 **Save this token somewhere safe.** If you lose it, you can reset it again (but each reset invalidates the previous token).
 

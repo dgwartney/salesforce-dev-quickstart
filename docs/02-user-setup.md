@@ -97,10 +97,12 @@ Permission Sets grant additional access on top of a user's base Profile.
 Each user has their own security token. User B needs one for API authentication.
 
 1. Log in to Salesforce as **User B** (open an incognito window or a different browser)
-2. Click the **gear icon** → **Setup** (or click user avatar → Settings → My Personal Information)
-3. In Quick Find, type: `Reset My Security Token`
+2. Click the **user avatar** (top right) → **Settings** — this opens Personal Settings, NOT Setup
+3. In the Quick Find on the left, type: `Reset My Security Token`
 4. Click **Reset Security Token**
 5. Check User B's email inbox for the token
+
+> **Personal Settings vs. Setup:** "Reset My Security Token" is a personal setting — it only appears when you go through user avatar → Settings. Searching for it in the gear icon → Setup (admin area) returns no results.
 
 > **Save User B's token** — this is the `SF_SECURITY_TOKEN` value for your `.env` file.
 

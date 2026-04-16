@@ -32,7 +32,7 @@ Fix: Setup → App Manager → find your app → dropdown → Manage → Edit Po
 
 - curl and JavaScript: you must append the security token directly to the password: `"password=${SF_PASSWORD}${SF_SECURITY_TOKEN}"` — no space, no separator
 - Python `simple-salesforce`: do NOT append the token; pass it as the separate `security_token=` parameter
-- Reset your token: Setup → Personal Settings → Reset My Security Token → check email
+- Reset your token: user avatar → Settings → Quick Find: `Reset My Security Token` → check email
 
 **Root cause 4 — Connected App created less than 10 minutes ago**
 
@@ -50,7 +50,7 @@ Salesforce recommends using alphanumeric passwords for API access. Special chara
 
 **Root cause 7 — Password changed recently**
 
-Changing your password invalidates all existing security tokens. Get a new security token: Setup → Personal Settings → Reset My Security Token.
+Changing your password invalidates all existing security tokens. Get a new security token: user avatar → Settings → Quick Find: `Reset My Security Token`.
 
 ---
 
