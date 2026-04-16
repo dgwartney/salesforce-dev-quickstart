@@ -89,11 +89,13 @@ SF_PASSWORD=userbpassword
 SF_SECURITY_TOKEN=userBsecurityToken
 SF_CONSUMER_KEY=3MVG9...yourConsumerKey
 SF_CONSUMER_SECRET=ABC123...yourConsumerSecret
-SF_INSTANCE_URL=https://login.salesforce.com
+SF_INSTANCE_URL=https://yourorg.develop.my.salesforce.com
 SF_API_VERSION=v62.0
 ```
 
-Note: `SF_INSTANCE_URL` stays as `https://login.salesforce.com` for the token endpoint. After authenticating, the response will include your org's actual instance URL (e.g., `https://myorg.my.salesforce.com`).
+**Finding your instance URL:** Look at your browser's address bar when logged into Salesforce. For Hyperforce orgs it looks like `https://orgfarm-XXXXXXXX-dev-ed.develop.my.salesforce.com` — use that exact URL (not the `-setup.` variant used in Setup pages).
+
+This URL is used for both the OAuth token request and all subsequent API calls.
 
 ---
 
@@ -102,7 +104,7 @@ Note: `SF_INSTANCE_URL` stays as `https://login.salesforce.com` for the token en
 After the 10-minute wait, run this curl command to verify everything works. Replace values with your actual credentials:
 
 ```bash
-curl -s https://login.salesforce.com/services/oauth2/token \
+curl -s "${SF_INSTANCE_URL}/services/oauth2/token" \
   -d "grant_type=password" \
   -d "client_id=${SF_CONSUMER_KEY}" \
   -d "client_secret=${SF_CONSUMER_SECRET}" \
