@@ -1,0 +1,21 @@
+---
+title: Two-User Architecture (Production Pattern)
+---
+flowchart LR
+    subgraph Users["Your Two User Accounts"]
+        A["👤 User A — Admin\nyour signup account\nUI + Setup + API access"]
+        B["🤖 User B — Integration User\ndedicated API account\nAPI access only"]
+    end
+
+    SF[("☁️ Salesforce Org\nAccounts · Contacts · Cases")]
+
+    A -- "manages org\nconfigures setup" --> SF
+    B -- "programmatic\nAPI calls" --> SF
+
+    subgraph Code["Your Code"]
+        PY["Python\nsimple-salesforce"]
+        JS["JavaScript\njsforce"]
+        SH["curl\nshell scripts"]
+    end
+
+    Code -- "authenticates as User B" --> B

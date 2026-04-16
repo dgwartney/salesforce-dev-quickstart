@@ -1,0 +1,35 @@
+---
+title: Salesforce Core Object Relationships
+---
+erDiagram
+    Account {
+        string Id PK
+        string Name
+        string Phone
+        string Industry
+        string BillingCity
+        string BillingState
+        string Website
+    }
+    Contact {
+        string Id PK
+        string FirstName
+        string LastName
+        string Email
+        string Phone
+        string AccountId FK
+    }
+    Case {
+        string Id PK
+        string Subject
+        string Description
+        string Status
+        string Priority
+        string Origin
+        string AccountId FK
+        string ContactId FK
+    }
+
+    Account ||--o{ Contact : "has many"
+    Account ||--o{ Case : "has many"
+    Contact ||--o{ Case : "linked to"

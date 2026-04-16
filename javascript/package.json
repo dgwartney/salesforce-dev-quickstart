@@ -1,0 +1,22 @@
+{
+  "name": "salesforce-dev-quickstart-js",
+  "version": "1.0.0",
+  "description": "Salesforce Developer Quickstart — JavaScript/TypeScript examples",
+  "scripts": {
+    "authenticate": "node 01_authenticate.js",
+    "accounts": "node 02_accounts.js",
+    "contacts": "node 03_contacts.js",
+    "cases": "node 04_cases.js",
+    "query": "node 05_query_soql.js",
+    "query:ts": "npx ts-node 06_query_soql.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "jsforce": "^3.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}

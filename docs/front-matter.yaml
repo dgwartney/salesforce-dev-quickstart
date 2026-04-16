@@ -1,0 +1,31 @@
+---
+title: "Salesforce Developer Quickstart"
+subtitle: "From Zero to REST API in 4–5 Hours"
+author:
+  - "David Gwartney <david.gwartney@gmail.com>"
+date: "2026"
+lang: en-US
+mainfont: "DejaVu Serif"
+sansfont: "DejaVu Sans"
+monofont: "DejaVu Sans Mono"
+monofontoptions:
+  - Scale=0.85
+fontsize: 11pt
+geometry: "margin=1in, top=1.25in, bottom=1.25in"
+linestretch: 1.2
+toc: true
+toc-depth: 2
+toc-title: "Table of Contents"
+numbersections: true
+colorlinks: true
+linkcolor: "NavyBlue"
+urlcolor: "NavyBlue"
+toccolor: "NavyBlue"
+documentclass: article
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancyhead[L]{Salesforce Developer Quickstart}
+  - \fancyhead[R]{David Gwartney}
+  - \fancyfoot[C]{\thepage}
+---

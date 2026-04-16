@@ -1,0 +1,55 @@
+---
+title: Salesforce Developer Quickstart — Learning Journey
+---
+flowchart TD
+    START(["🚀 Start Here"])
+
+    subgraph S0["⚙️ Pre-Flight · 10 min"]
+        T0["docs/00-required-tools\nVerify all tools installed"]
+    end
+
+    subgraph S1["📋 Session 1 — Foundations · ~90 min"]
+        T1["docs/01\nSign Up & Configure Org\n20 min"]
+        T2["docs/02\nCreate Admin + API Users\n25 min"]
+        T3["docs/03\nCreate Connected App\n25 min"]
+        CP1{{"⏸ Session 1 Checkpoint\nSave .env file"}}
+        T1 --> T2 --> T3 --> CP1
+    end
+
+    subgraph S2["🖥️ Session 2 — Salesforce UI · ~80 min"]
+        T4["docs/04\nAccounts, Contacts, Cases\nin the UI · 80 min"]
+        CP2{{"⏸ Session 2 Checkpoint\nSave Record IDs"}}
+        T4 --> CP2
+    end
+
+    subgraph S3["💻 Session 3 — Programmatic Access · ~120 min"]
+        T5["docs/05\ncurl CRUD · 30 min"]
+        T6["docs/06\nPython SDK · 45 min"]
+        T7["docs/07\nJavaScript/TS · 45 min"]
+        DONE(["✅ Journey Complete"])
+        T5 --> DONE
+        T6 --> DONE
+        T7 --> DONE
+    end
+
+    subgraph REF["📚 Reference — use anytime"]
+        R1["docs/08\nTroubleshooting"]
+        R2["docs/09\nDev Edition Scope & AI"]
+        R3["docs/glossary\nSalesforce Terms"]
+        R4["docs/learning-resources\nGo Deeper"]
+    end
+
+    START --> T0
+    T0 --> T1
+    CP1 --> T4
+    CP2 --> T5
+    CP2 --> T6
+    CP2 --> T7
+    DONE -.->|"stuck?"| R1
+    DONE -.->|"go further"| R2
+    DONE -.->|"learn more"| R4
+
+    style CP1 fill:#fffacd,stroke:#f0c040,color:#333
+    style CP2 fill:#fffacd,stroke:#f0c040,color:#333
+    style DONE fill:#d4edda,stroke:#28a745,color:#155724
+    style START fill:#cce5ff,stroke:#004085,color:#004085
