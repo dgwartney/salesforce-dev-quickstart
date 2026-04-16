@@ -85,7 +85,7 @@ Create a second Account with a different name so you have multiple records to qu
 
 **Copy the Contact Record ID** from the URL.
 
-### Understanding the Contact ↔ Account Relationship
+### Understanding the Contact and Account Relationship
 
 After saving, click on the Account Name link to return to Acme Corporation. Scroll down to the **Contacts** related list — Jane Smith should appear there. This demonstrates the relationship: Contact is a "child" of Account.
 

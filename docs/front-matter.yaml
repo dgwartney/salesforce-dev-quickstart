@@ -16,16 +16,26 @@ linestretch: 1.2
 toc: true
 toc-depth: 2
 toc-title: "Table of Contents"
-numbersections: true
+numbersections: false
 colorlinks: true
 linkcolor: "NavyBlue"
 urlcolor: "NavyBlue"
 toccolor: "NavyBlue"
-documentclass: article
+pdf-engine: xelatex
+highlight-style: tango
+documentclass: book
+classoption:
+  - openany
 header-includes:
+  - \usepackage{sectsty}
+  - \allsectionsfont{\normalfont\sffamily\bfseries}
   - \usepackage{fancyhdr}
   - \pagestyle{fancy}
   - \fancyhead[L]{Salesforce Developer Quickstart}
-  - \fancyhead[R]{David Gwartney}
+  - \fancyhead[R]{version 1.0.0}
   - \fancyfoot[C]{\thepage}
+  - \fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}}
+  - \setkeys{Gin}{width=\linewidth,height=0.80\textheight,keepaspectratio}
+  - \let\oldtoc\tableofcontents
+  - \renewcommand{\tableofcontents}{\oldtoc\clearpage}
 ---

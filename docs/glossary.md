@@ -160,7 +160,7 @@ A stored, encrypted external service credential in Salesforce. Avoids hardcoding
 ## Admin and Setup Concepts
 
 **Setup**
-Salesforce's administrative configuration area. Accessed via the gear icon (⚙) → Setup. Contains Quick Find search for navigating to any configuration page. Virtually everything you configure lives here.
+Salesforce's administrative configuration area. Accessed via the gear icon -> Setup. Contains Quick Find search for navigating to any configuration page. Virtually everything you configure lives here.
 
 **Object Manager**
 The section of Setup for managing sObject fields, page layouts, and relationships. Setup → Object Manager → select an object.

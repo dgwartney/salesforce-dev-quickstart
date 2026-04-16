@@ -88,12 +88,12 @@ uv --version && \
 node --version && \
 npm --version && \
 curl --version | head -1 && \
-echo "✓ All required tools found"
+echo "OK: All required tools found"
 ```
 
 Optional (jq):
 ```bash
-jq --version && echo "✓ jq found (optional)"
+jq --version && echo "OK: jq found (optional)"
 ```
 
 ---

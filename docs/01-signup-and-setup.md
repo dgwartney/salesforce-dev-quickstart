@@ -56,7 +56,7 @@ If you see an older, tab-heavy interface (Salesforce Classic), switch to Lightni
 2. Click **Switch to Lightning Experience**
 
 **Navigating Setup:** Almost everything you configure lives in the **Setup** menu:
-1. Click the **gear icon (⚙)** in the top right
+1. Click the **gear icon** in the top right
 2. Click **Setup**
 
 The Setup page has a **Quick Find** search box at the top left of the left sidebar. Type any menu item name to jump directly to it — you will use this constantly.
@@ -81,7 +81,7 @@ The security token is a personal credential you append to your password when mak
 
 ## Enable OAuth Username-Password Flow
 
-> ⚠️ **CRITICAL STEP — do not skip this.**  
+> **WARNING: CRITICAL STEP — do not skip this.**  
 > Salesforce disabled the OAuth Username-Password flow by default in all orgs created **Summer 2023 and later**. Skipping this step causes `invalid_grant` errors on every API authentication attempt.
 
 1. In Setup, search Quick Find for: `OAuth`

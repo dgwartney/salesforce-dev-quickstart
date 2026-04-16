@@ -1,24 +1,15 @@
 # Salesforce Developer Quickstart — PDF Build
 # ─────────────────────────────────────────────
-# Requires: pandoc, xelatex, rsvg-convert, DejaVu fonts
+# Requires: pandoc, xelatex, librsvg (rsvg-convert), DejaVu fonts
 # Install:  see docs/00-required-tools.md (PDF Build section)
 #
 # Usage:
-#   make pdf       — build the complete PDF guide
-#   make diagrams  — convert SVG diagrams to PNG for PDF embedding
-#   make clean     — remove generated PDF and PNG files
-#   make help      — show this help
+#   make pdf    — build the complete PDF guide
+#   make clean  — remove the generated PDF
+#   make help   — show this help
 
-PANDOC     := pandoc
-PDF_ENGINE := xelatex
-OUTPUT     := salesforce-dev-quickstart.pdf
-
-# SVG sources → PNG targets (XeLaTeX cannot embed SVG directly)
-DIAGRAM_SVGS := docs/diagrams/journey-map.svg \
-                docs/diagrams/data-model.svg \
-                docs/diagrams/user-architecture.svg
-
-DIAGRAM_PNGS := $(DIAGRAM_SVGS:.svg=.png)
+PANDOC := pandoc
+OUTPUT := salesforce-dev-quickstart.pdf
 
 # Documents included in the PDF, in reading order
 DOCS := docs/front-matter.yaml \
@@ -36,35 +27,28 @@ DOCS := docs/front-matter.yaml \
         docs/09-developer-edition-scope.md \
         docs/learning-resources.md
 
-.PHONY: pdf diagrams clean help
+.PHONY: all pdf clean help
+
+## all: Build the complete offline PDF guide (default target)
+all: pdf
 
 ## help: Show available make targets
 help:
 	@grep -E '^## ' Makefile | sed 's/## /  /'
 
 ## pdf: Build the complete offline PDF guide
-pdf: diagrams $(OUTPUT)
+pdf: $(OUTPUT)
 
-$(OUTPUT): $(DOCS) $(DIAGRAM_PNGS)
+$(OUTPUT): $(DOCS) Makefile
 	$(PANDOC) \
-		--pdf-engine=$(PDF_ENGINE) \
 		--from=markdown+yaml_metadata_block \
-		--toc \
-		--toc-depth=2 \
-		--number-sections \
-		--highlight-style=tango \
+		--resource-path=docs \
 		-o $@ \
 		$(DOCS)
 	@echo ""
-	@echo "✓ Built: $(OUTPUT)"
+	@echo "Built: $(OUTPUT)"
 
-## diagrams: Convert SVG diagrams to PNG for PDF embedding (300 DPI)
-diagrams: $(DIAGRAM_PNGS)
-
-docs/diagrams/%.png: docs/diagrams/%.svg
-	rsvg-convert -f png -d 300 -p 300 -o $@ $<
-
-## clean: Remove generated PDF and PNG files
+## clean: Remove the generated PDF
 clean:
-	rm -f $(OUTPUT) $(DIAGRAM_PNGS)
-	@echo "✓ Cleaned generated files"
+	rm -f $(OUTPUT)
+	@echo "Cleaned generated files"

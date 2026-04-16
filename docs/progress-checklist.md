@@ -5,7 +5,7 @@
 >
 > **Time estimates** assume careful reading and working through all examples.
 > First-time users typically take 25–50% longer than listed — that is completely normal.
-> You can stop at any **⏸ Checkpoint** and safely resume in a new session.
+> You can stop at any **[Pause] Checkpoint** and safely resume in a new session.
 
 ---
 
@@ -42,7 +42,7 @@
 - [ ] Ran test curl token request — received `access_token` in JSON response
 - [ ] Updated `.env` with `SF_INSTANCE_URL` from the token response
 
-### ⏸ Session 1 Checkpoint
+### [Pause] Session 1 Checkpoint
 
 **Save your `.env` file.** You now have:
 - A working Salesforce Developer Edition org
@@ -50,11 +50,11 @@
 - A Connected App with OAuth credentials
 - A working access token
 
-When you resume, start [Session 2](#session-2-salesforce-ui--80-min).
+When you resume, start [Session 2](#session-2).
 
 ---
 
-## Session 2: Salesforce UI · ~80 min
+## Session 2: Salesforce UI · ~80 min {#session-2}
 
 ### Phase 2: Accounts, Contacts, and Cases · ~80 min
 
@@ -75,15 +75,15 @@ When you resume, start [Session 2](#session-2-salesforce-ui--80-min).
 | Contact | `003...` | |
 | Case    | `500...` | |
 
-### ⏸ Session 2 Checkpoint
+### [Pause] Session 2 Checkpoint
 
 **Save the Record IDs** from the table above — you will paste them into API calls in Session 3.
 
-When you resume, choose your path in [Session 3](#session-3-programmatic-access--120-min).
+When you resume, choose your path in [Session 3](#session-3).
 
 ---
 
-## Session 3: Programmatic Access · ~120 min
+## Session 3: Programmatic Access · ~120 min {#session-3}
 
 ### Phase 3A: curl · ~30 min
 
@@ -116,7 +116,7 @@ When you resume, choose your path in [Session 3](#session-3-programmatic-access-
 
 ---
 
-## ✅ Journey Complete
+## [Complete] Journey Complete
 
 You can now:
 - Stand up a Salesforce Developer Edition org from scratch

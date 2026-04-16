@@ -54,7 +54,7 @@ After saving, Salesforce generates your credentials. **The Consumer Secret is on
 3. Copy **Consumer Key** → paste into `.env` as `SF_CONSUMER_KEY`
 4. Copy **Consumer Secret** → paste into `.env` as `SF_CONSUMER_SECRET`
 
-> ⚠️ **Consumer Secret is not recoverable.** If you navigate away without copying it, you must click **Reset Consumer Secret** to generate a new one (the old one stops working immediately).
+> **WARNING:** **Consumer Secret is not recoverable.** If you navigate away without copying it, you must click **Reset Consumer Secret** to generate a new one (the old one stops working immediately).
 
 ---
 
@@ -71,7 +71,7 @@ After saving, Salesforce generates your credentials. **The Consumer Secret is on
 
 ## Wait for Activation
 
-> ⏳ **Wait 2–10 minutes.** New Connected Apps take time to propagate across Salesforce's infrastructure. If you test immediately, you will get an `invalid_client` error even with correct credentials.
+> **Wait 2–10 minutes.** New Connected Apps take time to propagate across Salesforce's infrastructure. If you test immediately, you will get an `invalid_client` error even with correct credentials.
 
 Set a timer and proceed to update your `.env` file while you wait.
 
