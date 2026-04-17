@@ -52,6 +52,19 @@ Salesforce recommends using alphanumeric passwords for API access. Special chara
 
 Changing your password invalidates all existing security tokens. Get a new security token: user avatar → Settings → Quick Find: `Reset My Security Token`.
 
+**Root cause 8 — MFA (Multi-Factor Authentication) required on the account**
+
+If your Salesforce account requires MFA (phone or authenticator app verification on login), the Username-Password OAuth flow will always fail with `invalid_grant` — there is no way to pass an MFA code through this flow.
+
+Fix — waive MFA for API access:
+1. Setup → search Quick Find for `Session Settings`
+2. Click **Session Settings**
+3. Under **Session Security Levels**, find your Connected App in the "High Assurance" column
+4. Move it to the **Standard** column
+5. Click **Save**
+
+Alternatively, use an integration user (User B) with a Standard User profile — Standard Users typically do not have MFA enforced by default in Developer Edition orgs.
+
 ---
 
 ### `INVALID_LOGIN: Invalid username, password, security token; or user locked out`
