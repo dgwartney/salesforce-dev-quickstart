@@ -38,9 +38,22 @@ Fix: Setup → App Manager → find your app → dropdown → Manage → Edit Po
 
 New Connected Apps take 2–10 minutes to activate across Salesforce's infrastructure. Wait the full 10 minutes and try again.
 
-**Root cause 5 — Special characters in password**
+**Root cause 5 — Special characters in username or password (`+` sign in email)**
 
-Salesforce recommends using alphanumeric passwords for API access. Special characters in passwords can cause URL-encoding issues in the `grant_type=password` flow. Change your password to alphanumeric only if this is suspected.
+If your Salesforce username contains a `+` sign (e.g., `you+dev@example.com`), you MUST URL-encode it when sending via curl. In `application/x-www-form-urlencoded`, `+` means a space — so Salesforce receives `you dev@example.com` and fails with `invalid_grant`.
+
+Fix: use `--data-urlencode` instead of `-d` for the username and password fields:
+```bash
+# Wrong — '+' in username is decoded as a space by Salesforce
+curl ... -d "username=you+dev@example.com"
+
+# Correct — --data-urlencode encodes '+' as '%2B'
+curl ... --data-urlencode "username=you+dev@example.com"
+```
+
+The `authenticate.sh` script in this repo already uses `--data-urlencode` correctly. If you are writing your own curl commands, use `--data-urlencode` for any field that may contain special characters.
+
+Similarly, Salesforce recommends using alphanumeric passwords for API access. Special characters in passwords can cause URL-encoding issues. Change your password to alphanumeric only if `--data-urlencode` does not resolve the issue.
 
 **Root cause 6 — Wrong login endpoint**
 

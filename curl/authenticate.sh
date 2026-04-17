@@ -45,12 +45,14 @@ echo "Authenticating as ${SF_USERNAME}..."
 
 # POST to Salesforce OAuth token endpoint
 # password = SF_PASSWORD concatenated directly with SF_SECURITY_TOKEN (no separator)
+# --data-urlencode is required for username and password to handle special characters
+# (e.g., '+' in email addresses must be encoded as %2B, not treated as a space)
 RESPONSE=$(curl -s -X POST "${LOGIN_URL}/services/oauth2/token" \
     -d "grant_type=password" \
     -d "client_id=${SF_CONSUMER_KEY}" \
     -d "client_secret=${SF_CONSUMER_SECRET}" \
-    -d "username=${SF_USERNAME}" \
-    -d "password=${SF_PASSWORD}${SF_SECURITY_TOKEN}")
+    --data-urlencode "username=${SF_USERNAME}" \
+    --data-urlencode "password=${SF_PASSWORD}${SF_SECURITY_TOKEN}")
 
 # Check for error in response
 if echo "$RESPONSE" | grep -q '"error"'; then
