@@ -9,7 +9,7 @@
 
 Before creating anything, take 5 minutes to understand how the three core objects relate to each other.
 
-![Data Model](diagrams/data-model.svg)
+<img src="diagrams/data-model.svg" alt="Data Model" width="700">
 
 | Object | What It Represents | Salesforce Name | Required Field |
 |--------|-------------------|-----------------|----------------|
