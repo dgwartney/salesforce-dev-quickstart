@@ -65,6 +65,15 @@ Fix — waive MFA for API access:
 
 Alternatively, use an integration user (User B) with a Standard User profile — Standard Users typically do not have MFA enforced by default in Developer Edition orgs.
 
+**Useful diagnostic page — Connected Apps OAuth Usage:**
+
+Setup → Connected Apps → **Connected Apps OAuth Usage** shows all Connected Apps with:
+- **User Count** — active sessions (0 means no successful authentications yet)
+- **Denied Attempts Due to Usage Restriction** — non-zero means the app is actively blocking attempts
+- **Last Denied Attempt** — timestamp of most recent blocked authentication
+
+If your app shows denied attempts, the issue is a usage restriction (Permitted Users policy), not credentials.
+
 ---
 
 ### `INVALID_LOGIN: Invalid username, password, security token; or user locked out`
